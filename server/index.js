@@ -10,6 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get("/api/tweets", Tweets.getTweets);
+app.post("/api/tweets/", Tweets.searchTweet);
 app.get("api/todos", Todos.getTodos);
 app.post("/api/todos", Todos.addTodos);
 app.delete("/api/todos/:id", Todos.deleteTodo);

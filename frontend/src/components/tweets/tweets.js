@@ -17,8 +17,11 @@ class Tweets extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props);
+    const { tweetsParent } = this.props;
     axios.get('/api/tweets').then((response) => {
       this.setState({ tweets: response.data });
+      this.setState({ tweetsParent: this.state.tweet });
     });
   }
 
