@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Bookmarks from './components/bookmarks';
 import Nav from './components/nav';
 import Repos from './components/repos';
-import Stories from './components/stories/stories';
+import Todos from './components/todos';
 import Tweets from './components/tweets/';
 import './reset.css';
 
@@ -15,11 +14,11 @@ const Main = styled.div`
 export default () => (
   <React.Fragment>
     <Nav />
-    <Stories />
+    {/* <Stories /> */}
     <Main>
       <Repos />
       <Tweets />
-      <Bookmarks />
+      <Todos />
     </Main>
   </React.Fragment>
 );

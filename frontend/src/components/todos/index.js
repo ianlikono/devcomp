@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Bookmarks from './bookmarks';
-import BookmarksNav from './bookmarksNav';
+import Todos from './todos';
+import TodosNav from './todosNav';
 
 const Container = styled.div`
   flex-basis: 20em;
@@ -11,7 +11,7 @@ const Container = styled.div`
 
 export default () => (
   <Container>
-    <BookmarksNav />
-    <Bookmarks />
+    <TodosNav />
+    <Todos />
   </Container>
 );

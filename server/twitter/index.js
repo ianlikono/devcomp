@@ -10,7 +10,7 @@ const T = new Twit({
   access_token_secret: "Aod6pDZgYVYMkjvZYoX0jIxFdV1LIgauWtZJfmiJyNIns",
 });
 
-T.get("search/tweets", { q: "programming since:2011-07-11", count: 100 }, (err, data) => {
+T.get("search/tweets", { q: "eating since:2011-07-11", count: 100 }, (err, data) => {
   //   console.log(data);
   const arr = data.statuses;
   const objectsWithIds = arr.map((obj) => {
