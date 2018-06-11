@@ -11,6 +11,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 0,
     'react/sort-comp': 0,
     'no-useless-constructor': 0,
+    'arrow-parens': 0,
   },
   globals: {
     document: 1,
