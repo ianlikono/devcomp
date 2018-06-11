@@ -36,8 +36,8 @@ class Tweets extends Component {
         response.data.results.map(pic => {
           images.push(pic.urls.raw);
         });
-        this.setState((this.state.photos: images));
-        // console.log(this.state);
+        this.setState({ photos: images });
+        console.log(this.state.photos);
       });
   }
 
