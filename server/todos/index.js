@@ -25,12 +25,16 @@ const deleteTodo = (req, res) => {
 
 const updateTodo = (req, res) => {
   const { text } = req.body;
+
   const { id } = req.params;
+
+  console.log(text, id);
 
   let indexOfTodo = todos.findIndex(todo => todo.id == id);
   todos[indexOfTodo].text = text;
 
   res.status(200).send(todos);
+  // console.log(todos);
 };
 
 export default {

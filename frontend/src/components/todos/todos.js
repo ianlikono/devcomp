@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React from 'react';
-import Textarea from 'react-textarea-autosize';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -36,6 +35,7 @@ export default class extends React.Component {
       todos: [],
       error: '',
       editing: false,
+      submitEdit: false,
     };
   }
 
@@ -69,24 +69,27 @@ export default class extends React.Component {
 
   editSaveTodoHandler = (id, text) => {
     this.setState({ editing: !this.state.editing });
-    axios.put(`/api/todos/${id}`, { text }).then((response) => {
-      this.setState({ todos: response.data });
-    });
+    this.state.submitEdit
+      ? axios.put(`/api/todos/${id}`, { text }).then((response) => {
+        this.setState({ todos: response.data });
+      })
+      : this.setState({ submitEdit: !this.state.submitEdit });
   };
 
-  // onEditHandler = () => {
-  //   this.setState({ editing: !this.state.editing });
+  // onTextAreaCHange = (e) => {
+  //   this.setState({ textArea: e.target.value });
+  //   console.log(this.state.textArea);
   // };
 
   render() {
     const { todos, id, editing } = this.state;
     const todosDisplay = todos.map(todo => (
       <TodosWrapper key={todo.id}>
-        {editing ? <Textarea /> : todo.text}
+        {editing ? <input onChange={this.onChangeListener} /> : todo.text}
         <EdDel>
           <i
             // onClick={this.onEditHandler}
-            onClick={() => this.editSaveTodoHandler(todo.id, todo.text)}
+            onClick={() => this.editSaveTodoHandler(todo.id, this.state.input)}
             className="fas fa-edit"
             style={{ cursor: 'pointer', margin: '5px' }}
           />
